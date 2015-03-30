@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
   	} else {
   		res.send(obj);
   	}
-  })
+  });
 });
 
 
@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
 router.get('/user/:user', function(req, res) {
 	var params= {
 		username: req.param('user')
-	}
+	};
 	model.getUser(params, function(err, obj){
 		if(err){
 	  		res.status(500).send({error: 'An unknown server error has occurred!'});
@@ -42,7 +42,7 @@ router.post('/login', function(req, res) {
 			} else {
 				res.send(obj);
 			}
-		});		
+		});
 	} else {
 		res.status(400).send({error: 'Invalid login'});
 	}
@@ -59,7 +59,7 @@ router.post('/logout', function(req, res) {
 			}
 		});
 	} else {
-		res.status(400).send({error: 'Invalid user'});		
+		res.status(400).send({error: 'Invalid user'});
 	}
 });
 
